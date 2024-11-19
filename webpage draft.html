@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawsome Pets Co.</title>
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Color Scheme */
+        body { font-family: Arial, sans-serif; background-color: #fdf6e3; color: #4e4b44; margin: 0; padding: 0; }
+        a { color: #8c6b4c; text-decoration: none; transition: color 0.3s; }
+        a:hover { color: #6d4f3d; }
+
+        /* Header */
+        header { background-color: #e3c6a7; padding: 20px 0; text-align: center; }
+        .logo { width: 150px; }
+        nav a { margin: 0 15px; font-weight: bold; }
+
+        /* Main Container */
+        .container { width: 85%; margin: auto; padding: 20px; }
+
+        /* Sections and Transitions */
+        section { padding: 20px 0; opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+        section.fade-in { opacity: 1; transform: translateY(0); }
+        
+        /* Titles and Headings */
+        h1 { color: #8c6b4c; }
+        h2 { color: #6d4f3d; margin-bottom: 10px; }
+
+        /* Products, Awards, and Partnerships Sections */
+        .item { display: flex; flex-direction: column; align-items: center; margin: 20px 0; }
+        .item img { max-width: 300px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-bottom: 10px; }
+        .item p { font-size: 1.1em; text-align: center; color: #4e4b44; }
+
+        /* Fading Animation */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <script>
+        // JavaScript to add fade-in effect when sections are scrolled into view
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll("section");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fade-in");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="https://t3.ftcdn.net/jpg/05/30/48/54/360_F_530485466_BQWjzzkuCwUqI3iBVHgY76yA0sLjJpmg.jpg" alt="Pawsome Pets Co. Logo" class="logo">
+        <h1>Pawsome Pets Co.</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <section class="mission">
+            <h2>Mission Statement</h2>
+            <p>At Pawsome Pets Co., we're passionate about enhancing the lives of dogs and cats by providing high-quality essentials, promoting healthy habits, and fostering a community of informed and compassionate pet parents. We strive to make a positive impact on the lives of our furry friends and the people who love them.</p>
+        </section>
+
+        <section class="vision">
+            <h2>Vision Statement</h2>
+            <p>To be the trusted partner for pet owners worldwide, delivering innovative products, expert advice, and unparalleled customer care. We envision a future where every pet thrives, and every pet parent has access to the resources they need to provide a happy, healthy life for their beloved companions.</p>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products">
+            <h2>Our Products</h2>
+            
+            <div class="item">
+                <img src="https://www.petexpress.com.ph/cdn/shop/products/10215797-Saint-Roche-Premium-Heaven-Scent-Dog-Shampoo-1050ml-front_800x.jpg?v=1645690104" alt="Shampoo">
+                <p>Shampoo - A soothing formula for a shiny, healthy coat.</p>
+            </div>
+
+            <div class="item">
+                <img src="https://www.kahayupan.com/cdn/shop/products/conditionheavenscent_2048x.jpg?v=1604514868" alt="Conditioner">
+                <p>Conditioner - Keeps fur soft, manageable, and tangle-free.</p>
+            </div>
+
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdXgwuVqtH0RReu9Vu0dsR4gMH2nLfZ35gug&s" alt="Toothpaste">
+                <p>Toothpaste - Freshens breath and supports dental health.</p>
+            </div>
+
+            <div class="item">
+                <img src="https://www.petwarehouse.ph/11563-thickbox_default/pedigree-dentastix-puppy-dog-dental-treats.jpg" alt="Dental Sticks">
+                <p>Dental Sticks - Tasty treats that clean and protect teeth.</p>
+            </div>
+
+            <div class="item">
+                <img src="https://www.petexpress.com.ph/cdn/shop/files/10164263CosiPetsMilk1L_2cartons_1_800x.jpg?v=1712797613" alt="Baby Formula">
+                <p>Baby Formula - Nutritional support for growing puppies and kittens.</p>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>Testimonials</h2>
+            <ul>
+                <li>"Pawsome Pets Co. has changed the way I care for my furry friends! Their expert advice and high-quality products have improved the health and happiness of my pets." - Karen Davilla, Pet Owner</li>
+                <li>"As a veterinarian, I recommend Pawsome Pets Co. to all my clients. Their products are top-notch, and their commitment to animal welfare is unparalleled." - Dr. John Smith, Veterinarian</li>
+                <li>"I was blown away by the quality of Pawsome Pets Co.'s products and the kindness of their customer service team. They truly care about pets and their owners!" - Emily Chen, Pet Parent</li>
+            </ul>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews">
+            <h2>Reviews</h2>
+            <ul>
+                <li>"Pawsome Pets Co. is revolutionizing the pet care industry with their innovative products and dedication to animal welfare." - The New York Times</li>
+                <li>"Pawsome Pets Co. stands out for its commitment to sustainability and eco-friendliness. A true leader in the pet industry!" - Pet Industry Magazine</li>
+                <li>"Pawsome Pets Co.'s products are a game-changer for pet owners. We highly recommend their natural food and supplement options." - Whole Dog Journal</li>
+            </ul>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="awards">
+            <h2>Awards and Recognition</h2>
+            
+            <div class="item">
+                <img src="https://www.uottawa.ca/faculty-medicine/sites/g/files/bhrskd401/files/styles/max_width_l_1470px/public/2022-03/awards-cup-1348x609_0.jpg?itok=jeldqa3e" alt="Best Pet Supply Company">
+                <p>"Best Pet Supply Company" by Pet Industry Awards (2022)</p>
+            </div>
+
+            <div class="item">
+                <img src="https://img.freepik.com/free-vector/realistic-film-awards-illustration_23-2149314769.jpg" alt="Sustainable Business of the Year">
+                <p>"Sustainable Business of the Year" by Green Business Awards (2023)</p>
+            </div>
+
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeoSlwEuU7qR4QGslePKgBTXA15xn8o2-D2w&s" alt="Top 10 Pet Companies to Watch">
+                <p>"Top 10 Pet Companies to Watch" by Pet Food Processing (2022)</p>
+            </div>
+        </section>
+
+ <!-- Partnerships Section -->
+        <section class="partnerships">
+            <h2>Our Partners</h2>
+            
+            <div class="item">
+                <img src="https://lh5.googleusercontent.com/proxy/6rkYuzjdVroiAVmMI_TvZhKu70zWGtlF6qSE-Hj447MPZK5iiWH1VJ8lTPhmtx3qIjpzE-vdfk7PYVS0R5vQ1MowQds5oWD-IhexJ1_bfoDuBZIf0kkepu-6boMOQZyWiSmo6viyO3Uc24WM7MASQ6q5qsFnX0lvAM6v1JUReu0TkjHIxI_ZbXqJtE7TGpRMggOWsAd-soU6TCq1Pj6-hMduRLAo7x2DquEx3FmfHWQ18o-hkW2W9WpYmjW8F0Zsi_TZSJJrDODNt7bH" alt="ASPCA">
+                <p>American Society for the Prevention of Cruelty to Animals (ASPCA)</p>
+            </div>
+
+            <div class="item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/24/WWF_logo.svg" alt="World Wildlife Fund">
+                <p>World Wildlife Fund (WWF)</p>
+            </div>
+
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb8T1qz2QN_F0VNwJd95GCeZw846-bBD6tXA&s" alt="Local Animal Shelters">
+                <p>Local animal shelters and rescue organizations</p>
+            </div>
+        </section>
+
+<!-- Careers Section -->
+<section class="careers">
+<h2>Join Our Pack!</h2>
+<p>Explore job opportunities in customer service, marketing, and product development.</p>
+<a href="#">View Open Positions</a>
+</section>
+
+
+<!-- Contact Us Section -->
+<section class="contact">
+<h2>Get in Touch</h2>
+<p>Phone: 1-800-PAWSOME (1-800-729-7663)</p>
+<p>Email: <a href="mailto:hello@pawsomepetsco.com">hello@pawsomepetsco.com</a></p>
+<p>Address: 123 Pet Lane, Anytown, USA 12345</p>
+</section>
+
+
+    </div>
+
+</body>
+</html>
